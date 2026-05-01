@@ -1,137 +1,150 @@
 {% extends "base.html" %}
+{% block title %}Checkout{% endblock %}
 
 {% block content %}
-            </div>
-        </div>
-    </div>
-    <!-- Navbar End -->
 
+<!-- Page Header -->
+<div class="page-header text-center mb-5">
+    <h1 class="fw-bold mb-2">Checkout</h1>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb justify-content-center mb-0">
+            <li class="breadcrumb-item"><a href="{% url 'home' %}" class="text-white-50">Home</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'cart' %}" class="text-white-50">Cart</a></li>
+            <li class="breadcrumb-item active text-white">Checkout</li>
+        </ol>
+    </nav>
+</div>
 
-    <!-- Page Header Start -->
-    <div class="container-fluid bg-secondary mb-5">
-        <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
-            <h1 class="font-weight-semi-bold text-uppercase mb-3">Checkout</h1>
-            <div class="d-inline-flex">
-                <p class="m-0"><a href="">Home</a></p>
-                <p class="m-0 px-2">-</p>
-                <p class="m-0">Checkout</p>
-            </div>
-        </div>
-    </div>
-    <!-- Page Header End -->
-
-
-    <!-- Checkout Start -->
-    <div class="container-fluid pt-5">
-        <form method="post" action="{% url 'checkout' %}">
+<div class="container-fluid px-5 pb-5">
+    <form method="post" action="{% url 'checkout' %}">
         {% csrf_token %}
-            <div class="row px-xl-5">
-                <div class="col-lg-8">
-                    {% if messages %}
-                    {% for message in messages %}
-                        {% if message.tags == 'success' %}
-                        <div style="background-color:green; text-align:center; color:white; padding:10px 0;">
-                            {{message}}
-                        </div>
-                        {% else %}
-                        <div style="background-color:red; color:white;">
-                            {{message}}
-                        </div>
-                        {% endif %}
-                    {% endfor %}
-                {% endif %}
-                    <div class="mb-4">
-                        <h4 class="font-weight-semi-bold mb-4">Billing Address</h4>
-                        <div class="row">
-                            
-                            <div class="col-md-6 form-group">
-                                <label>First Name</label>
-                                <input class="form-control" type="text" name="fname" placeholder="John">
+        <div class="row g-4">
+            <!-- Billing Form -->
+            <div class="col-lg-8">
+                <div class="card border-0 shadow-sm rounded-3">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold mb-4">
+                            <i class="bi bi-geo-alt text-primary me-2"></i>Billing Address
+                        </h5>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold small">First Name *</label>
+                                <input class="form-control" type="text" name="fname" placeholder="John" required>
                             </div>
-                            <div class="col-md-6 form-group">
-                                <label>Last Name</label>
-                                <input class="form-control" type="text" name="lname" placeholder="Doe">
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold small">Last Name *</label>
+                                <input class="form-control" type="text" name="lname" placeholder="Doe" required>
                             </div>
-                            <div class="col-md-6 form-group">
-                                <label>E-mail</label>
-                                <input class="form-control" type="text" name="email" placeholder="example@email.com">
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold small">Email Address *</label>
+                                <input class="form-control" type="email" name="email" placeholder="john@example.com" required>
                             </div>
-                            <div class="col-md-6 form-group">
-                                <label>Mobile No</label>
-                                <input class="form-control" type="text" name="mobile" placeholder="+123 456 789">
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold small">Mobile Number *</label>
+                                <input class="form-control" type="text" name="mobile" placeholder="+92 300 1234567" required>
                             </div>
-                            <div class="col-md-6 form-group">
-                                <label>Address Line 1</label>
-                                <input class="form-control" type="text" name="address1" placeholder="123 Street">
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold small">Address Line 1 *</label>
+                                <input class="form-control" type="text" name="address1" placeholder="House/Street No." required>
                             </div>
-                            <div class="col-md-6 form-group">
-                                <label>Address Line 2</label>
-                                <input class="form-control" type="text" name="address2" placeholder="123 Street">
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold small">Address Line 2</label>
+                                <input class="form-control" type="text" name="address2" placeholder="Apartment, suite, etc.">
                             </div>
-                            <div class="col-md-6 form-group">
-                                <label>Country</label>
-                                <select class="custom-select" name="country">
-                                    <option value="United States" selected>United States</option>
-                                    <option value="Afghanistan">Pakistan</option>
-                                    <option value="Albania">Albania</option>
-                                    <option value="Algeria">Algeria</option>
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold small">Country *</label>
+                                <select class="form-select" name="country" required>
+                                    <option value="Pakistan" selected>Pakistan</option>
+                                    <option value="United States">United States</option>
+                                    <option value="United Kingdom">United Kingdom</option>
+                                    <option value="India">India</option>
+                                    <option value="UAE">UAE</option>
+                                    <option value="Saudi Arabia">Saudi Arabia</option>
+                                    <option value="Other">Other</option>
                                 </select>
                             </div>
-                            <div class="col-md-6 form-group">
-                                <label>City</label>
-                                <input class="form-control" type="text" name="city" placeholder="New York">
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold small">City *</label>
+                                <input class="form-control" type="text" name="city" placeholder="Lahore" required>
                             </div>
-                            <div class="col-md-6 form-group">
-                                <label>State</label>
-                                <input class="form-control" type="text" name="state" placeholder="New York">
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold small">State / Province</label>
+                                <input class="form-control" type="text" name="state" placeholder="Punjab">
                             </div>
-                            <div class="col-md-6 form-group">
-                                <label>ZIP Code</label>
-                                <input class="form-control" type="text" name="zipcode" placeholder="123">
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold small">ZIP / Postal Code</label>
+                                <input class="form-control" type="text" name="zipcode" placeholder="54000">
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="card border-secondary mb-5">
-                        <div class="card-header bg-secondary border-0">
-                            <h4 class="font-weight-semi-bold m-0">Order Total</h4>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="font-weight-medium mb-3">Products</h5>
-                            {% for item in cart_items %}
-                            <div class="d-flex justify-content-between">
-                                <p>{{item.product.title}}</p>
-                                <p>Rs.{{item.total_price}}</p>
-                            </div>
-                            {% endfor %}
-                            
-                            <hr class="mt-0">
-                            <div class="d-flex justify-content-between mb-3 pt-1">
-                                <h6 class="font-weight-medium">Subtotal</h6>
-                                <h6 class="font-weight-medium">Rs.{{total_price}}</h6>
-                            </div>
-                            <div class="d-flex justify-content-between">
-                                <h6 class="font-weight-medium">Shipping</h6>
-                                <h6 class="font-weight-medium">Free</h6>
-                            </div>
-                        </div>
-                        <div class="card-footer border-secondary bg-transparent">
-                            <div class="d-flex justify-content-between mt-2">
-                                <h5 class="font-weight-bold">Total</h5>
-                                <h5 class="font-weight-bold">Rs.{{total_price}}</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card border-secondary mb-5">
-                        <div class="card-footer border-secondary bg-transparent">
-                            <button class="btn btn-lg btn-block btn-primary font-weight-bold my-3 py-3">Place Order</button>
                         </div>
                     </div>
                 </div>
             </div>
-        </form>
-    </div>
-    <!-- Checkout End -->
 
-    {% endblock %}
+            <!-- Order Summary -->
+            <div class="col-lg-4">
+                <div class="card border-0 shadow-sm rounded-3">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold mb-4">
+                            <i class="bi bi-bag-check text-primary me-2"></i>Order Summary
+                        </h5>
+                        {% for item in cart_items %}
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div class="d-flex align-items-center gap-2">
+                                <img src="{{ item.product.img_link }}" alt="{{ item.product.title }}"
+                                     style="width: 45px; height: 45px; object-fit: cover; border-radius: 8px;">
+                                <div>
+                                    <p class="mb-0 small fw-semibold">{{ item.product.title }}</p>
+                                    <small class="text-muted">Qty: {{ item.quantity }}</small>
+                                </div>
+                            </div>
+                            <span class="fw-semibold small">Rs.{{ item.total_price }}</span>
+                        </div>
+                        {% endfor %}
+                        <hr>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-muted">Subtotal</span>
+                            <span class="fw-semibold">Rs.{{ total_price }}</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-3">
+                            <span class="text-muted">Shipping</span>
+                            <span class="text-success fw-semibold">Free</span>
+                        </div>
+                        <hr>
+                        <div class="d-flex justify-content-between mb-4">
+                            <span class="fw-bold fs-5">Total</span>
+                            <span class="fw-bold fs-5 text-primary">Rs.{{ total_price }}</span>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 py-3 fw-semibold">
+                            <i class="bi bi-check-circle me-2"></i>Place Order
+                        </button>
+                        <a href="{% url 'cart' %}" class="btn btn-outline-secondary w-100 mt-2">
+                            <i class="bi bi-arrow-left me-2"></i>Back to Cart
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Security badges -->
+                <div class="card border-0 shadow-sm rounded-3 mt-3">
+                    <div class="card-body p-3">
+                        <div class="d-flex justify-content-around text-center">
+                            <div>
+                                <i class="bi bi-shield-lock text-success fs-4"></i>
+                                <p class="small text-muted mb-0">Secure</p>
+                            </div>
+                            <div>
+                                <i class="bi bi-credit-card text-primary fs-4"></i>
+                                <p class="small text-muted mb-0">Safe Pay</p>
+                            </div>
+                            <div>
+                                <i class="bi bi-arrow-repeat text-warning fs-4"></i>
+                                <p class="small text-muted mb-0">Returns</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

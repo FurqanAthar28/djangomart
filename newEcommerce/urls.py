@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from newEcommerce import views
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -33,5 +34,13 @@ urlpatterns = [
     path('details/<slug:product_ref>', views.details, name="details"),
     path('add-to-cart/<int:product_id>', views.add_to_cart, name="add_to_cart"),
     path('cart/remove/<int:cart_item_id>', views.remove_from_cart, name="remove_from_cart"),
-
+    
+    path('password-reset/', auth_views.PasswordResetView.as_view(template_name='password_reset.html'), name='password_reset'),
+    path('password-reset/done/', auth_views.PasswordResetDoneView.as_view(template_name='password_reset_done.html'), name='password_reset_done'),
+    path('password-reset-confirm/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name='password_reset_confirm.html'), name='password_reset_confirm'),
+    path('password-reset-complete/', auth_views.PasswordResetCompleteView.as_view(template_name='password_reset_complete.html'), name='password_reset_complete'),
+    
+    path('faqs/', views.faqs, name='faqs'),
 ]
+
+
