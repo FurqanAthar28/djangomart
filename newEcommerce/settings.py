@@ -18,7 +18,11 @@ ALLOWED_HOSTS = config(
     default="127.0.0.1,localhost",
     cast=Csv()
 )
-
+CSRF_TRUSTED_ORIGINS = config(
+    "CSRF_TRUSTED_ORIGINS",
+    default="https://furqan.pythonanywhere.com",
+    cast=Csv()
+)
 
 INSTALLED_APPS = [
     "django.contrib.admin",
