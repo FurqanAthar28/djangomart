@@ -1,55 +1,219 @@
 # 🛒 DjangoMart
 
-A full-featured e-commerce web application built with Django. Features OTP email verification, product catalogue with category filtering, shopping cart, paginated shop, and full checkout with order management.
+A modern E-commerce web application built with Django that allows users to browse products, manage their cart, and place orders through a clean and responsive interface.
+
+> This project was developed as part of my Django learning journey and demonstrates core web development concepts including authentication, CRUD operations, session management, and deployment.
+
+---
+
+## 🌐 Live Demo
+
+**Website:** https://furqan.pythonanywhere.com
+
+---
+
+
+
+## 📸 Screenshots
+
+### Home Page
+
+![Home](images/home.png)
+
+### Shop Page
+
+![Shop](images/shop.png)
+
+### Product Details
+
+![Product Details](images/product-details.png)
+
+### Shopping Cart
+
+![Cart](images/cart.png)
+
+### Checkout
+
+![Checkout](images/checkout.png)
+
+### Login
+
+![Login](images/login.png)
+
+### Register
+
+![Register](images/register.png)
+
+### Django Admin
+
+![Admin](images/admin.png)
 
 ## ✨ Features
 
-- User Authentication with OTP email verification
-- Product catalogue with category filtering
-- SEO-friendly slug-based product URLs
-- Shopping cart with quantity management and real-time total
-- Paginated shop page
-- Full checkout with order saving
-- Contact form via email
-- Responsive Bootstrap UI
+- User Registration & Login
+- Product Catalog
+- Product Details
+- Shopping Cart
+- Checkout System
+- Django Admin Dashboard
+- Email Configuration
+- Static File Management
+- Responsive UI
+- Secure Environment Variables (.env)
+- Production Deployment
 
-## 🛠️ Tech Stack
+---
 
-- Python 3.13 / Django 4.2
-- SQLite (development)
-- Bootstrap / HTML / CSS / JavaScript
-- Gmail SMTP for emails
-- django-autoslug
-- python-decouple (.env)
+## 🛠 Tech Stack
 
-## ⚙️ Setup
+### Backend
 
-1. Clone the repo
-   git clone https://github.com/FurqanAthar28/djangomart.git
-   cd djangomart
+- Python 3
+- Django 6
 
-2. Create and activate virtual environment
-   python -m venv venv
-   venv\Scripts\activate
+### Database
 
-3. Install dependencies
-   pip install django django-autoslug python-decouple
+- SQLite
 
-4. Create .env file in root
-   SECRET_KEY=your-secret-key
-   EMAIL_HOST_USER=your-email@gmail.com
-   EMAIL_HOST_PASSWORD=your-app-password
+### Frontend
 
-5. Run migrations
-   python manage.py migrate
+- HTML
+- CSS
+- Bootstrap
+- JavaScript
 
-6. Start server
-   python manage.py runserver
+### Deployment
 
-Visit http://127.0.0.1:8000
+- PythonAnywhere
+- WhiteNoise
+
+### Version Control
+
+- Git
+- GitHub
+
+---
+
+## 📂 Project Structure
+
+```
+DjangoMart
+│
+├── newEcommerce/
+├── product_app/
+├── templates/
+├── static/
+├── staticfiles/
+├── manage.py
+├── requirements.txt
+└── README.md
+```
+
+---
+
+## ⚙ Installation
+
+Clone the repository
+
+```bash
+git clone https://github.com/FurqanAthar28/djangomart.git
+```
+
+Move into the project
+
+```bash
+cd djangomart
+```
+
+Create virtual environment
+
+```bash
+python -m venv .venv
+```
+
+Activate virtual environment
+
+### Windows
+
+```bash
+.venv\Scripts\activate
+```
+
+### Linux / macOS
+
+```bash
+source .venv/bin/activate
+```
+
+Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+Run migrations
+
+```bash
+python manage.py migrate
+```
+
+Run development server
+
+```bash
+python manage.py runserver
+```
+
+---
+
+## 🚀 Deployment
+
+The application is deployed on **PythonAnywhere**.
+
+---
+
+## 📚 What I Learned
+
+During this project I learned:
+
+- Django Models
+- Django ORM
+- URL Routing
+- Template Engine
+- Forms
+- Authentication
+- Sessions
+- CRUD Operations
+- Static & Media Files
+- Django Admin
+- Git & GitHub
+- Production Deployment
+- Environment Variables
+- WhiteNoise Configuration
+
+---
+
+## 🔮 Future Improvements
+
+- Product Search
+- Product Categories
+- Wishlist
+- Order History
+- Payment Gateway
+- Product Reviews
+- PostgreSQL
+- Docker
+- REST API
+- JWT Authentication
+
+---
 
 ## 👨‍💻 Author
 
-Furqan Athar
-- GitHub: https://github.com/FurqanAthar28
-- LinkedIn: https://www.linkedin.com/in/furqan-athar
+**Furqan Athar**
+
+GitHub:
+https://github.com/FurqanAthar28
+
+---
+
+⭐ If you found this project helpful, consider giving it a star.
