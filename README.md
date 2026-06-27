@@ -12,20 +12,41 @@ A modern E-commerce web application built with Django that allows users to brows
 
 ---
 
+
+
 ## 📸 Screenshots
 
-> Screenshots will be added soon.
+### Home Page
 
-- Home Page
-- Shop Page
-- Product Details
-- Cart
-- Checkout
-- Login
-- Register
-- Django Admin Panel
+![Home](images/home.png)
 
----
+### Shop Page
+
+![Shop](images/shop.png)
+
+### Product Details
+
+![Product Details](images/product-details.png)
+
+### Shopping Cart
+
+![Cart](images/cart.png)
+
+### Checkout
+
+![Checkout](images/checkout.png)
+
+### Login
+
+![Login](images/login.png)
+
+### Register
+
+![Register](images/register.png)
+
+### Django Admin
+
+![Admin](images/admin.png)
 
 ## ✨ Features
 
