@@ -44,9 +44,7 @@ A modern E-commerce web application built with Django that allows users to brows
 
 ![Register](images/register.png)
 
-### Django Admin
 
-![Admin](images/admin.png)
 
 ## ✨ Features
 
